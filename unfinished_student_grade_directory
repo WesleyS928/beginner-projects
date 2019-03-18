@@ -1,0 +1,67 @@
+#! python3
+# T L Byers
+# SPRING 2018
+__date__ = "1/31/2018"
+
+'''*
+Description: 3.3 Load list data from a directory
+*'''
+#modules
+import os
+
+#functions
+def printList(_theList):
+    print(_theList)
+    return
+
+def appendList(_theList):
+    _theList.append(input("\nEnter Student: "))
+    _theList.append(input("\nEnter Score: "))
+    return(_theList)
+
+def printStudent(_theList):
+    for cnt in range(0, len(_theList), 2):
+        print("\n {0}, {1}" .format(_theList[cnt], _theList[
+            cnt +1]))
+    return
+
+def findStudent(_theList, _student):
+    for item in _theList:
+        if item == _student:
+            grade = (_theList.index(_student) + 1)
+            print("\n {0} was found! Grade is: {1}".format(
+                _student, _theList[grade]))
+            return
+    input("\nStudent {0} was not found please press enter"
+          .format(_student))
+    return
+
+def writeData(_theList):
+    folder = os.path.realpath("Data_Storage")
+    with open(folder + "\\" +
+              (input("\nEnter file name "
+                     "only"))+".txt", "w") as handler:
+        for item in _theList:
+            handler.write("{0}\n".format(item))
+
+###### End Functions
+
+myList = {"Mickey":100,"Donald":75, "Fred":65}
+
+while True:
+    menuOption = input("\n0.\tExit"
+                       "\n1.\tAdd Students"
+                       "\n2.\tPrint Students"
+                       "\n3.\tFind a Student and Grade"
+                       "\n\nEnter a Menu Number: ")
+    if menuOption == "0":
+        writeData(myList)
+        exit("\nNormal Exit")
+    if menuOption == "1":
+        myList = appendList(myList)
+    if menuOption == "2":
+        printStudent(myList)
+    if menuOption == "3":
+        findStudent(myList, input("\nEnter Student Name: "))
+
+
