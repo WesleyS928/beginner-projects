@@ -1,0 +1,19 @@
+__date__ = "1/24/2018"
+'''*
+DESCRIPTION: Boot Camp File and List review
+*'''
+def appendFile(_fileName):
+    existingFile = open(_fileName+".txt", "a")
+    return(existingFile)
+
+myFile = appendFile(input("Enter Only the Name Of The File You Would Like To Edit"))
+
+while True:
+    myFile.write(input("\nEnter student name: "))
+    myFile.write("\n")
+    myFile.write(input("\nEnter student score: "))
+    myFile.write("\n")
+    keepGoing = input("To continue press enter or 00 to exit: ")
+    if keepGoing == "00":
+        myFile.close()
+        exit("User Exit")
