@@ -1,0 +1,27 @@
+"""Store the numbers 0-10 in an array called numbers.
+Reverse the order of the numbers array and
+print them out in reverse order."""
+# Comment the program instead of pseudocode
+
+#declare array(list)
+numbers=[]
+
+#for loop to create an array
+for num in range(0,11):
+    numbers.append(num)
+    
+#while to print the array
+count=0
+while count<11:
+    print(numbers[count])
+    count=count+1
+    
+#using the reverse function of an array to reverse the numbers 
+numbers.reverse()
+
+#while loop to print array
+count=0
+while count<11:
+    print(numbers[count])
+    count=count+1
+        
